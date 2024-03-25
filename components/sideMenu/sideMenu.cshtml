@@ -1,0 +1,49 @@
+@{
+    Layout = null;
+    var cookie = Request.Cookies[Constants.SIDEMENU_STATE];
+    bool isOpen = cookie != null ? cookie.Value == "true" : true;
+}
+
+<div class="sidemenu-container">
+
+    <div class="eia-titolmovil__container eia-container-section__box-flexcenter">
+        <h1>Workspace</h1>
+    </div>
+
+    <ul id="sidemenu" class="sidemenu @(isOpen ? "" : "collapsed")">
+
+        <li class="sidemenu__item">
+            <div id="sidemenu-toggle" class="sidemenu__item-container">
+                @* Icono para desplegar *@
+                <div id="sidemenu-toggle-open"
+                     class="sidemenu__item-container__icon @(isOpen ? "d-none" : "")">
+                    <span>
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </div>
+                @* Icono para colapsar *@
+                <div id="sidemenu-toggle-close"
+                     class="sidemenu__item-container__icon @(isOpen ? "" : "d-none")">
+                    <span>
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+                <p class="sidemenu__item-container__text"></p>
+            </div>
+        </li>
+
+        <li class="sidemenu__item"
+            title="Gestor de recursos">
+            <a class="sidemenu__item-container" href="">
+                <div class="sidemenu__item-container__icon">
+                    <span>
+                        <i class="fas fa-user-tie"></i>
+                    </span>
+                </div>
+                <p class="sidemenu__item-container__text">Menu</p>
+            </a>
+        </li>
+
+    </ul>
+
+</div>

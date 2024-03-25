@@ -1,0 +1,102 @@
+.sidemenu-container {
+}
+
+.sidemenu {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100vh;
+    min-width: 270px;
+    max-width: 270px;
+    overflow: hidden;
+    padding: 20px;
+    background: white;
+    list-style: none;
+    transition: all 0.2s ease;
+}
+
+    .sidemenu a {
+        color: var(--eia-primary);
+    }
+
+    .sidemenu.collapsed {
+        max-width: 90px;
+        min-width: 90px;
+    }
+
+.collapsed .sidemenu__item-container__text {
+    opacity: 0;
+}
+
+.sidemenu__item {
+    position: relative;
+}
+
+    .sidemenu__item:hover {
+        cursor: pointer;
+    }
+
+.sidemenu__item-container__text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--eia-secondary);
+    transition: width 0.3s ease;
+}
+
+.sidemenu__item:hover .sidemenu__item-container__text::after {
+    width: 100%;
+}
+
+.sidemenu__item:hover .sidemenu__item-container__icon,
+.active .sidemenu__item-container__icon {
+    color: var(--eia-secondary);
+    /*border: 1px solid var(--eia-secondary);*/
+}
+
+.sidemenu__item:hover .sidemenu__item-container__text,
+.active .sidemenu__item-container__text {
+    color: var(--eia-secondary);
+}
+
+.sidemenu__item:not(:first-child) {
+    margin-top: 10px;
+}
+
+.sidemenu__item-container {
+    display: flex;
+    text-decoration: none !important;
+}
+
+.sidemenu__item-container__icon {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    max-width: 50px;
+    min-width: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    transition: color 0.2s ease-in-out;
+}
+
+    .sidemenu__item-container__icon span {
+        font-size: 20px;
+    }
+
+.sidemenu__item-container__text {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px !important;
+    padding: 0 0 0 0 !important;
+    opacity: 1;
+    white-space: nowrap;
+    transition: opacity 0.4s ease, color 0.2s ease-in-out;
+}
